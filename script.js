@@ -6,7 +6,10 @@ const UI = (function(){
 		itemType: ".expense-type-select",
 		itemValue: ".monetaryAmount",
 		form: ".form",
-		outputSection: ".output-container"
+		outputSection: ".output-container",
+		incomeTotal: ".income-total span",
+		expenseTotal: ".expense-total span",
+		grandTotal: ".grand-total span"
 	}
 	
 	return {
@@ -44,6 +47,12 @@ const UI = (function(){
 				</div>
 				`
 			}
+		},
+		updateUITotals(incomeTotal, expenseTotal, grandTotal){
+			document.querySelector(DOMStrings.incomeTotal).textContent = incomeTotal;
+			document.querySelector(DOMStrings.expenseTotal).textContent = expenseTotal;
+			document.querySelector(DOMStrings.grandTotal).textContent = grandTotal;
+
 		}
 	}
 	
@@ -104,6 +113,16 @@ const Store = (function(){
 				data.expenses.push(obj);
 			}
 		},
+		addAmountToDataStructure(type, amount){
+			if(type === "+"){
+				data.totalIn += amount;
+			} else {
+				data.totalOut += amount;
+			}
+		},
+		calculateGrandTotal(){
+			return data.totalIn - data.totalOut;
+		},
 		// For testing purposes:
 		data
 	}
@@ -135,8 +154,27 @@ const App = (function(UI, Store){
 
 			// HTML with dynamic data
 			let HTML = UI.createItemComponent(budgetObj.name, budgetObj.type, budgetObj.value, budgetObj.id)
+
 			// Add budget item to UI
 			document.querySelector(UI.DOMStrings.outputSection).insertAdjacentHTML("beforeend", HTML);
+
+			// Parse amount into number
+			let amount = parseFloat(budgetObj.value);
+
+			// Add amounts to data structure
+			Store.addAmountToDataStructure(budgetObj.type, amount);
+
+			// Calculate grand total
+			let grandTotal = Store.calculateGrandTotal()
+
+			// Update Data store with grand total
+			Store.data.grandTotal = grandTotal;
+
+			// Update UI with updated totals
+			UI.updateUITotals(Store.data.totalIn, Store.data.totalOut, Store.data.grandTotal);
+
+			// Parse 
+			console.log(Store.data);
 
 		});
 	}
