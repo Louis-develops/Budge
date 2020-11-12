@@ -1,0 +1,222 @@
+:root{
+	--border-light: 1px solid rgba(0, 0, 0, 0.062);
+}
+
+/* Browser reset */
+html{
+	font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Epilogue', sans-serif;
+}
+
+nav ul li a:link,
+nav ul li a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+.btn{
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.btn:visited,
+.btn:link,
+.btn:focus{
+	outline: none;
+}
+/* ********************
+***********************
+STYLE ***************** */
+
+.container{
+	width: 70%;
+	margin: 0 auto;
+}
+
+/* Utility classes */
+.m-t-s{
+	margin-top: 1rem;
+}
+
+.border{
+	border: var(--border-light);
+}
+
+.spacer{
+	display: block;
+	flex: 1;
+	height: 100%;
+}
+/* Navigation */
+.navigation{
+	border-radius: .5rem;
+	padding: 1.5rem 2rem 1rem 2rem;
+}
+
+.navigation-items{
+	list-style: none;
+
+	display: flex;
+	align-items: baseline;
+}
+
+.nav-header{
+	margin-right: auto;
+	font-size: 2.5rem;
+}
+
+.navigation-items li{
+	transition: border-bottom .2s ease-in;
+}
+
+.navigation-items li:not(:first-child):hover{
+	border-bottom: 1px solid black;
+}
+
+.navigation-items li:not(:first-child):not(:last-child){
+	margin-right: 2rem;
+	
+}
+
+.navigation-items li:not(:first-child){
+	font-size: 1.75rem;
+	font-weight: 300;
+}
+
+/* Form */
+.form{
+	display: flex;
+	height: 3rem;
+	transition: all .3s ease-in ;
+}
+
+.form:hover{
+	height: 5rem;
+}
+
+.location-input-2{
+	flex: 6;
+	padding: 1.5rem 2rem 1rem 2rem;
+	display: block;
+	width: 80%;
+	height: 100%;
+	font-size: 2rem;
+	border: none;
+	transition: all .3s ease-in;
+}
+
+.location-input-2::placeholder{
+	color: rgba(0, 0, 0, 0.219);
+}
+
+.expense-type-select{
+	display: block;
+	flex: .5;
+	height: 100%;
+	font-size: 3rem;
+	border: none;
+	color: rgba(0, 0, 0, 0.219);
+	
+}
+
+.new-add-button{
+	font-size: 2.5rem;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.062);
+	color: black;
+	flex: 1;
+	height: 100%;
+}
+
+.monetaryAmount-label{
+	display: block;
+	font-size: 2rem;
+	color: rgba(0, 0, 0, 0.219);
+	align-self: center;
+}
+
+.monetaryAmount{
+	border: none;
+	font-size: 2rem;
+}
+
+/* Totals */
+.totals{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 2rem;
+	height: 5rem;
+}
+
+.totals .income-total span{
+	color: green;
+}
+
+.totals .expense-total span{
+	color: red;
+}
+
+/* Data Output area */
+.output-container > div:last-child{
+	margin-bottom: 10px;
+}
+
+/* Budget Items */
+.item-container{
+	display: flex;
+	width: 100%;
+	height: 4rem;
+	margin-top: 10px;
+}
+
+.item{
+	background-color: rgba(0, 0, 0, 0.034);
+	border-radius: 50px;
+	width: 40%;
+	font-size: 2rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+}
+
+.item-container.income{
+	justify-content: flex-start;
+
+}
+
+.item-container.expense{
+	justify-content: flex-end;
+}
+
+.expense{
+	margin-right: 10px;
+}
+
+.income{
+	margin-left: 10px;
+}
+
+.item-type{
+	font-size: 4rem;
+}
+
+.plus{
+	color: green;
+}
+
+.minus{
+	color: red;
+}
+

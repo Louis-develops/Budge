@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Epilogue&display=swap" rel="stylesheet">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="style.css">
+
+	<title>Budge</title>
+</head>
+<body>
+
+	<!-- Margin container -->
+	<div class="container">
+		<!-- Navigation -->
+		<nav class="navigation m-t-s border">
+			<ul class="navigation-items">
+				<li class="nav-header"><a href="index.html"><h1 >Budge</h1></a></li>
+				<li class="nav-scan"><a href="index.html" >home</a></li>
+				<li class="nav-about"><a href="about.html" >about</a></li>
+			</ul>
+		</nav>
+		<!-- Location search -->
+		<form class="form m-t-s border">
+			<input type="text" class="location-input-2" placeholder="Enter income or expense name">
+			<select class="expense-type-select">
+				<option value="+">+</option>
+				<option value="-">-</option>
+			</select>
+			<label for="monetaryAmount" class="monetaryAmount-label">£</label>
+			<input type="number" placeholder="0" name="monetaryAmount" class="monetaryAmount">
+			<button class="btn new-add-button">Add</button>
+		</form>
+
+		<section class="totals m-t-s border">
+			<div class="income-total">In: £<span>34</span></div>
+			<div class="grand-total">Total: £<span>34</span></div>
+			<div class="expense-total">Out: £<span>34</span></div>
+		</section>
+		
+		<!-- Data output container -->
+		<section class="output-container m-t-s border">
+			
+			<!-- Income -->
+			<div class="item-container income">
+				<div class="item income">
+					<div class="item-type plus">+</div>
+					<p class="description">Money for neighbour</p>
+					<p class="amount">£20</p>
+				</div>
+			</div>
+		
+
+			<!-- Expense -->
+			<div class="item-container expense">
+				<div class="item expense">
+					<div class="item-type minus">-</div>
+					<p class="description">Money for neighbour</p>
+					<p class="amount-plus">£20</p>
+				</div>
+			</div>
+
+		<!-- Expense -->
+		<div class="item-container expense">
+			<div class="item expense">
+				<div class="item-type minus">-</div>
+				<p class="description">Money for neighbour</p>
+				<p class="amount-plus">£20</p>
+			</div>
+		</div>
+
+</section>
+	<!-- Script -->
+	<script src="script.js"></script>
+</body>
+</html>
